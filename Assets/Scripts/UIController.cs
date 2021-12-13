@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("Button Control Events")]
+    public static bool jumpButtonDown;
+
+    public void OnJumpButton_Down()
     {
-        
+        jumpButtonDown = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnJumpButton_Up()
     {
-        
+        jumpButtonDown = false;
     }
 }
