@@ -115,6 +115,25 @@ public class PlayerController : MonoBehaviour
         return x;
     }
 
+    //EVENTS 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Platform"))
+        {
+            transform.SetParent(other.transform);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Platform"))
+        {
+            transform.SetParent(null);
+        }
+    }
+
+
+
     // UTILITIES
 
     private void OnDrawGizmos()
