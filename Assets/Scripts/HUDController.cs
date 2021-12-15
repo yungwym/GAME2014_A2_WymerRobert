@@ -1,3 +1,15 @@
+/*
+ * Program Header: HUD Controller
+ * Robert Wymer - 101070567
+ * Last Date Modified - Dec 11, 2021
+ * Version 1.0
+ * 
+ * Handles Heads Up Display 
+ *
+ * 
+ * 
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,12 +25,6 @@ public class HUDController : MonoBehaviour
 
     public Sprite collectedKeyImage;
     public Sprite emptyLifeImage;
-
-
-    [Header("End Door")]
-    public GameObject door;
-    public Sprite lockedDoor;
-    public Sprite unlockedDoor;
 
     private PlayerController player;
 
@@ -42,15 +48,12 @@ public class HUDController : MonoBehaviour
         int keyIndex = player.GetKey();
         int lifeIndex = player.GetLives();
 
-        Debug.Log("Key index" + keyIndex);
-        Debug.Log("Key index" + lifeIndex);
-
-        if (keyIndex <= keyImages.Count)
+        if (keyIndex < keyImages.Count)
         {
             keyImages[keyIndex].sprite = collectedKeyImage;
         }
 
-        if (lifeIndex <= healthImages.Count)
+        if (lifeIndex < healthImages.Count)
         {
             healthImages[lifeIndex].sprite = emptyLifeImage;
         }

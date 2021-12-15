@@ -1,3 +1,15 @@
+
+/*
+ * Program Header: Spinner Controller
+ * Robert Wymer - 101070567
+ * Last Date Modified - Dec 13, 2021
+ * Version 1.0
+ * 
+ * Controls the Spinner Enemy Object
+ * Moves enemy between platform
+ * 
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

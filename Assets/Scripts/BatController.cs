@@ -1,3 +1,16 @@
+/*
+ * Program Header: Bat Controller
+ * Robert Wymer - 101070567
+ * Last Date Modified - Dec 15, 2021
+ * Version 1.0
+ * 
+ * Controls movement of the Bat Enemy Object and Collision with player
+ *
+ * 
+ * 
+ */
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +27,6 @@ public class BatController : MonoBehaviour
     public int rewardScore;
 
     private AudioManager audioManager;
-
 
     // Start is called before the first frame update
     void Start()

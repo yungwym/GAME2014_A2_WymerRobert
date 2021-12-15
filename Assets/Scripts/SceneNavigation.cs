@@ -17,8 +17,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneNavigation : MonoBehaviour
 {
-    
-
     public void StartScene_StartButtonPressed()
     {
         SceneManager.LoadScene("GameScene");
@@ -28,8 +26,6 @@ public class SceneNavigation : MonoBehaviour
     {
         SceneManager.LoadScene("InstructionScene");
     }
-
-   
 
     public void GameScene_NextButtonPressed()
     {
@@ -56,8 +52,6 @@ public class SceneNavigation : MonoBehaviour
     {
         SceneManager.LoadScene("InstructionScene2");
     }
-
-
 
     //Instruction Scene 2
     public void InstructionScene2_BackButtonPressed()
@@ -92,5 +86,13 @@ public class SceneNavigation : MonoBehaviour
         SceneManager.LoadScene("StartScene");
     }
 
+    public void LoadGameScene()
+    {
+        SceneManager.LoadScene("GameScene");
+    }
 
+    public void LoadMainMenuScene()
+    {
+        SceneManager.LoadScene("StartScene");
+    }
 }

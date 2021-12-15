@@ -1,3 +1,16 @@
+/*
+ * Program Header: Spider Controller
+ * Robert Wymer - 101070567
+ * Last Date Modified - Dec 13, 2021
+ * Version 1.0
+ * 
+ * Controls the Spider Enemy Object
+ * Moves Enemy Along Platform layer, flipping if it reaches the end 
+ * Fire Bullets if has lOS with Player 
+ * Handles Collision with player
+ */
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,7 +58,6 @@ public class SpiderController : MonoBehaviour
     void FixedUpdate()
     {
         LookAhead();
-       // LookInFront();
 
         if (!HasLOS())
         {
@@ -95,17 +107,6 @@ public class SpiderController : MonoBehaviour
         var hit = Physics2D.Linecast(transform.position, lookAheadPoint.position, groundLayerMask);
         isGroundAhead = (hit) ? true : false;
     }
-
-    /*
-    private void LookInFront()
-    {
-        var hit = Physics2D.Linecast(transform.position, lookInFrontPoint.position, wallLayerMask);
-        if (hit)
-        {
-            Flip();
-        }
-    }
-    */
 
     private void MoveEnemy()
     {

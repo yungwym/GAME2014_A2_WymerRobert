@@ -1,3 +1,15 @@
+/*
+ * Program Header: Player Controller
+ * Robert Wymer - 101070567
+ * Last Date Modified - Dec 13, 2021
+ * Version 1.0
+ * 
+ * Controls the Player Object 
+ * Gets input
+ * Has Basic Variables for Lives, Score, Coins and Keys 
+ * Handles Collision with Platforms, Keys, Coins and Enemies 
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,6 +44,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rigidbody;
     private Animator playerAnimator;
     private AudioManager audioManager;
+
+    public bool isDead = false;
+    public bool allKeysCollected = false;
 
     // Start is called before the first frame update
     void Start()
@@ -141,20 +156,32 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage()
     {
-        audioManager.Play("DamagerTaken");
+        audioManager.Play("DamageTaken");
         playerLives -= 1;
+
+        if (playerLives <= 0)
+        {
+            isDead = true;
+        }
     }
 
     public void CollectCoin()
     {
         audioManager.Play("CoinPickup");
+        AddToScore(200);
         playerCoins += 1;
     }
 
     public void CollectKey()
     {
         audioManager.Play("KeyPickup");
+        AddToScore(100);
         playerKeys -= 1;
+
+        if (playerKeys <= 0)
+        {
+            allKeysCollected = true;
+        }
     }
 
     public int GetCoins()
@@ -166,7 +193,6 @@ public class PlayerController : MonoBehaviour
     {
         return playerKeys;
     }
-
 
     //EVENTS 
     private void OnCollisionEnter2D(Collision2D other)
@@ -184,6 +210,10 @@ public class PlayerController : MonoBehaviour
         {
             CollectKey();
             Destroy(other.gameObject);
+        }
+        else if (other.gameObject.CompareTag("Enemy"))
+        {
+            TakeDamage();
         }
     }
 

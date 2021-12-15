@@ -42,9 +42,9 @@ public class BulletController : MonoBehaviour
                 Destroy(this.gameObject);
                 break;
             case "Player":
+                other.gameObject.GetComponent<PlayerController>().TakeDamage();
                 Destroy(this.gameObject);
                 break;
         }
-
     }
 }

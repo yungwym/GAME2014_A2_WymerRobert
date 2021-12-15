@@ -289,6 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e84aff18dd32546bb872ac505f3da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rewardScore: 0
   enemyLOS: {fileID: 0}
   runForce: 10
   lookAheadPoint: {fileID: 1128805980}

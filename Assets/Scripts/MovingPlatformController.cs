@@ -1,3 +1,12 @@
+/*
+ * Program Header: Moving Platform Controller 
+ * Robert Wymer - 101070567
+ * Last Date Modified - Dec 13, 2021
+ * Version 1.0
+ * 
+ * Controls moving Platform
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

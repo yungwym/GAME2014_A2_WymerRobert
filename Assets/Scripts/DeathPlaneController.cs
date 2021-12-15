@@ -1,3 +1,16 @@
+/*
+ * Program Header: Death Plane Controller
+ * Robert Wymer - 101070567
+ * Last Date Modified - Dec 13, 2021
+ * Version 1.0
+ * 
+ * 
+ * Handles Collision with player and death plane, resets players positon if collides
+ * 
+ * 
+ */
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,13 +30,7 @@ public class DeathPlaneController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //other.transform.position = gameController.currentSpawnPoint.position;
-
             other.transform.position = spawnPoint.position; 
-        }
-        else
-        {
-           // other.gameObject.SetActive(false);
         }
     }
 }
