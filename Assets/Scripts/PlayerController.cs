@@ -22,6 +22,12 @@ public class PlayerController : MonoBehaviour
     [Header("Animation")]
     public PlayerAnimationStates state;
 
+
+    [Header("Player Variables")]
+    public int playerLives = 3;
+    public int playerScore = 0;
+
+
     private Rigidbody2D rigidbody;
     private Animator playerAnimator;
 
@@ -114,6 +120,33 @@ public class PlayerController : MonoBehaviour
         transform.localScale = new Vector3(x, 1.0f);
         return x;
     }
+
+
+    //PLAYER FUNCTIONS 
+    public int GetLives()
+    {
+        return playerLives;
+    }
+
+    public int GetScore()
+    {
+        return playerScore;
+    }
+
+    public void AddToScore(int amount)
+    {
+        playerScore += amount;
+    }
+
+    public void TakeDamage()
+    {
+        playerLives -= 1;
+    }
+
+
+
+
+
 
     //EVENTS 
     private void OnCollisionEnter2D(Collision2D other)
