@@ -10,13 +10,16 @@ public class BatController : MonoBehaviour
     public float moveSpeed;
     private int waypointIndex;
 
+    [Header("Enemy Variables")]
+    public int rewardScore;
 
+    private AudioManager audioManager;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -49,6 +52,17 @@ public class BatController : MonoBehaviour
     private void Flip()
     {
         transform.localScale = new Vector3(transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            audioManager.Play("EnemyDeath");
+            other.gameObject.GetComponent<PlayerController>().AddToScore(rewardScore);
+            Destroy(gameObject);
+        }
     }
 }
 

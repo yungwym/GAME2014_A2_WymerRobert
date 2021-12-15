@@ -24,12 +24,14 @@ public class PlayerController : MonoBehaviour
 
 
     [Header("Player Variables")]
-    public int playerLives = 3;
+    public int playerLives = 0;
     public int playerScore = 0;
-
+    public int playerKeys = 0;
+    public int playerCoins = 0;
 
     private Rigidbody2D rigidbody;
     private Animator playerAnimator;
+    private AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +39,8 @@ public class PlayerController : MonoBehaviour
 
         rigidbody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -59,10 +63,7 @@ public class PlayerController : MonoBehaviour
             // jump activated
             if (jump > 0)
             {
-
-                //Play Jump Sound 
-
-              //  jumpSound.Play();
+                audioManager.Play("PlayerJump");
             }
 
             // Check for Flip
@@ -140,12 +141,31 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage()
     {
+        audioManager.Play("DamagerTaken");
         playerLives -= 1;
     }
 
+    public void CollectCoin()
+    {
+        audioManager.Play("CoinPickup");
+        playerCoins += 1;
+    }
 
+    public void CollectKey()
+    {
+        audioManager.Play("KeyPickup");
+        playerKeys -= 1;
+    }
 
+    public int GetCoins()
+    {
+        return playerCoins;
+    }
 
+    public int GetKey()
+    {
+        return playerKeys;
+    }
 
 
     //EVENTS 
@@ -154,6 +174,16 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Platform"))
         {
             transform.SetParent(other.transform);
+        }
+        else if (other.gameObject.CompareTag("Coin"))
+        {
+            CollectCoin();
+            Destroy(other.gameObject);
+        }
+        else if (other.gameObject.CompareTag("Key"))
+        {
+            CollectKey();
+            Destroy(other.gameObject);
         }
     }
 
@@ -165,14 +195,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-
     // UTILITIES
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(groundOrigin.position, groundRadius);
     }
-
 }

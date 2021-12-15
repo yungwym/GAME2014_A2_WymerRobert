@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class SpiderController : MonoBehaviour
 {
+    [Header("Enemy Variabes")]
+    public int rewardScore;
+
     [Header("Player Detection")]
     public LOS enemyLOS;
 
@@ -133,7 +136,6 @@ public class SpiderController : MonoBehaviour
         }
     }
 
-   
     // EVENTS
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -156,10 +158,7 @@ public class SpiderController : MonoBehaviour
         }
     }
 
-
-
     // UTILITIES
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 767226412}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LookInFrontPoint
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767226411}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.944, y: 0.05, z: 0}
+  m_LocalPosition: {x: -0.964, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3553846731029902745}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1128805980}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LookAheadPoint
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1677655334}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -84,7 +84,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677655333}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.265, y: 0, z: 0}
+  m_LocalPosition: {x: -1.265, y: 0.216, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3553846731029902745}
@@ -106,7 +106,8 @@ GameObject:
   - component: {fileID: 4437098348872179585}
   - component: {fileID: 2545925972771820542}
   - component: {fileID: 164452386538119039}
-  m_Layer: 0
+  - component: {fileID: 3448787630381970328}
+  m_Layer: 10
   m_Name: Spider
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -298,7 +299,7 @@ MonoBehaviour:
   isGroundAhead: 0
   animatorController: {fileID: 0}
   bulletSpawn: {fileID: 1677655334}
-  fireDelay: 20
+  fireDelay: 30
   player: {fileID: 0}
   bulletPrefab: {fileID: 5447713098719819903, guid: 7d2b98175e9879c429d3ad67babecaf4, type: 3}
   spitSound: {fileID: 0}
@@ -330,3 +331,26 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   colliderList: []
+--- !u!68 &3448787630381970328
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3553846731029902747}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.76403785, y: 0.5204494}
+  - {x: 0.0050411224, y: 0.57249427}
+  - {x: 0.788059, y: 0.51244235}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
